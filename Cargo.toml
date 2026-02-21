@@ -1,0 +1,44 @@
+[package]
+name = "hanzo-relay"
+version = "0.1.0"
+edition = "2021"
+authors = ["Hanzo AI Inc"]
+license = "MIT"
+repository = "https://github.com/hanzoai/relay"
+homepage = "https://hanzo.ai"
+description = "Relay client for Hanzo apps — register, stream, and remote-control local instances from app.hanzo.bot"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.36", features = ["rt", "macros", "sync", "time", "net"] }
+tokio-tungstenite = { version = "0.26.2", features = ["native-tls"] }
+futures = "0.3"
+uuid = { version = "1.6", features = ["v4"] }
+chrono = { version = "0.4", features = ["serde"] }
+tracing = "0.1"
+thiserror = "2.0"
+url = "2"
+
+[features]
+default = ["reconnect"]
+reconnect = []
+mdns = ["dep:mdns-sd"]
+tls-rustls = ["dep:rustls"]
+
+[dependencies.mdns-sd]
+version = "0.11"
+optional = true
+
+[dependencies.rustls]
+version = "0.23"
+optional = true
+
+[workspace]
+
+[lib]
+crate-type = ["rlib"]
+
+[dev-dependencies]
+tokio-test = "0.4"
+tokio = { version = "1.36", features = ["rt-multi-thread", "macros", "test-util"] }
