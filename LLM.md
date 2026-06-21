@@ -1,4 +1,4 @@
-# LLM.md - Hanzo Relay
+# Hanzo Relay
 
 ## Overview
 Hanzo relay service
