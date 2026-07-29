@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "snake_case")]
 pub enum AuthToken {
-    /// A JWT from hanzo.id (Casdoor IAM).
+    /// A JWT from hanzo.id (Hanzo IAM).
     Jwt { token: String },
     /// A Hanzo API key (sk-hanzo-...).
     ApiKey { key: String },
